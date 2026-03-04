@@ -11,11 +11,15 @@ public class PhysicsMovement : MonoBehaviour
 
     public bool onGround;
 
+    public Vector3 spawnPosition;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         // Automatically looks for a Rigidbody component on the current GameObject
         rb = GetComponent<Rigidbody>();
+
+        spawnPosition = transform.position;
     }
 
     // Update is called once per frame
@@ -56,6 +60,12 @@ public class PhysicsMovement : MonoBehaviour
             {
                 rb.AddForce(Vector3.up * jumpForce, ForceMode.Impulse);
             }
+        }
+
+        // ------- Respawning -------
+        if (transform.position.y < 0)
+        {
+            rb.position = spawnPosition;
         }
     }
 

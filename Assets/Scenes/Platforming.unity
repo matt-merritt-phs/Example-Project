@@ -156,6 +156,7 @@ MonoBehaviour:
   turnSpeed: 90
   jumpForce: 5
   onGround: 0
+  spawnPosition: {x: 0, y: 0, z: 0}
 --- !u!65 &463759314
 BoxCollider:
   m_ObjectHideFlags: 0
